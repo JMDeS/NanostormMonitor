@@ -6,8 +6,16 @@
 //{
 //}
 Power::Power()
-    : m_power_connected(false)
+    : m_power_connected(true)
 {
+}
+
+int Power::getDeviceId()
+{
+    if(power_connected())
+        return 0;
+    else
+        return -1;
 }
 
 int Power::connectPower()
@@ -86,4 +94,14 @@ int Power::writeVoltage(double voltage)
         return -1;
     }
 
+}
+
+int Power::updateVoltage(double voltage)
+{
+    if (voltage<0.0)
+        return -1;
+    else if (voltage>5.7)
+        return -1;
+    else
+        return 0;
 }

@@ -15,8 +15,9 @@ public:
     Power();
 
     bool power_connected() const { return m_power_connected; }
+    void connect() {m_power_connected = false;}
     int voltage() const { return m_voltage; }
-    int getDeviceId() {return 0;}
+    int getDeviceId();
 //signals:
 //    void voltageChanged(int voltage);
 
@@ -24,11 +25,11 @@ public slots:
     int connectPower(); //on QThread::started() signal
     int readVoltage(); // on voltageChanged signal
     int writeVoltage(double voltage);
+    int updateVoltage(double voltage);
 
 private:
-    bool m_power_connected;
+    bool m_power_connected = true;
     int m_voltage;
-
 };
 
 #endif // POWER_H

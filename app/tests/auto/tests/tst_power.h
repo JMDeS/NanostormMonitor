@@ -3,6 +3,7 @@
 
 #include "mocks.h"
 #include "power.h"
+#define ERROR -1
 TEST(MockPower, SerialPortConnectionReturnsZeroOnSuccess)
 {
     MockPower power;
@@ -48,10 +49,26 @@ TEST(MockPower, GetDeviceIdFromPortReturnsValueWhenLabJackConnected)
     Power power;
     EXPECT_EQ(LABJACK_U6_DEVICE, power.getDeviceId());
 }
-TEST(PowerTest, GetDeviceIdFromPortReturnsErrorValueWhenLabJackNotConnected)
+TEST(MockPower, GetDeviceIdFromPortReturnsErrorValueWhenLabJackNotConnected)
 {
     Power power;
+    power.connect();
     EXPECT_EQ(ERROR_NO_DEVICE_FOUND, power.getDeviceId());
 }
+TEST(PowerTest, UpdateVoltageReturnsZeroIfInBounds){
+    Power power;
+    EXPECT_EQ(0, power.updateVoltage(2.0));
+}
+TEST(PowerTest, UpdateVoltageReturnsErrorForInputLessThanZero){
+    Power power;
+    EXPECT_EQ(ERROR, power.updateVoltage(-2.0));
+}
+TEST(PowerTest, UpdateVoltageReturnsErrorForInputGreaterThan5point7){
+    Power power;
+    EXPECT_GT(5.7, power.updateVoltage(6.0));
+}
+
+
+
 
 #endif // TST_POWER_H

@@ -2,7 +2,16 @@ TEMPLATE = subdirs
 
 QMAKE_CXXFLAGS_DEBUG += /MTd
 QMAKE_CXXFLAGS_RELEASE += /MT VC\Lib\amd64
+QMAKE_CXXFLAGS+=/Zi<br />
+QMAKE_LFLAGS+= /INCREMENTAL:NO /Debug<br />
+
+
 SUBDIRS += \
-    app
+app
+
+
+
+
+
 
 
