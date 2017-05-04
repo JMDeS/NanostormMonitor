@@ -24,6 +24,7 @@ class MockPower : public iPower {
       int(double voltage));
   MOCK_METHOD0(readVoltage,
       int());
+  MOCK_METHOD0(getDeviceId, int());
 };
 
 class MockCamera : public iCamera {

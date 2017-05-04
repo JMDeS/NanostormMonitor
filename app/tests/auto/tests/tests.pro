@@ -23,17 +23,21 @@ HEADERS += \
     mocks.h \
     tst_camera.h \
     tst_power.h \
-    camera.h
+    camera.h \
+    analoginput.h \
+    labjackdriver.h \
+    labjackwrapper.h
 
 SOURCES +=    \
-    main.cpp \
-#    _tmain.cpp \
+#    main.cpp \
+    _tmain.cpp \
     pump.cpp \
     global_objects.cpp \
     power.cpp \
     mainwindow.cpp \
     pump.cpp \
-    camera.cpp
+    camera.cpp \
+    analoginput.cpp
 
 FORMS += \
     mainwindow.ui
@@ -49,3 +53,24 @@ INCLUDEPATH += $$PWD/'../../../../../../../../Program Files/Thorlabs/Scientific 
 DEPENDPATH += $$PWD/'../../../../../../../../Program Files/Thorlabs/Scientific Imaging/DCx Camera Support/Develop/Include'
 
 
+
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackUd
+#else:unix: LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+
+#INCLUDEPATH += $$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit'
+#DEPENDPATH += $$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit'
+
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackUd
+#else:unix: LIBS += -L$$PWD/'../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+
+#INCLUDEPATH += $$PWD/'../../../../Program Files/LabJack/Drivers'
+#DEPENDPATH += $$PWD/'../../../../Program Files/LabJack/Drivers'
+
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackUd
+#else:unix: LIBS += -L$$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit/' -lLabJackU
+
+#INCLUDEPATH += $$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit'
+#DEPENDPATH += $$PWD/'../../../../../../../../Program Files/LabJack/Drivers/64bit'

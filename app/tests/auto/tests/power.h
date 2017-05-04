@@ -4,6 +4,8 @@
 #include"interfaces.h"
 //#include <QObject>
 //#include <QtCore>
+#define LABJACK_U6_DEVICE 0
+#define ERROR_NO_DEVICE_FOUND -1
 
 class Power : public iPower
 {
@@ -14,7 +16,7 @@ public:
 
     bool power_connected() const { return m_power_connected; }
     int voltage() const { return m_voltage; }
-
+    int getDeviceId() {return 0;}
 //signals:
 //    void voltageChanged(int voltage);
 

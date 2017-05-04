@@ -11,6 +11,7 @@ public:
     Camera();
 protected:
 //    Cuc480 m_camera;
+    int connectCamera();
 
     //TODO: setup this class in the same fashion as uc480class.h
     //----- but eliminate as much unnecessary methods and fluff

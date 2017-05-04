@@ -12,6 +12,13 @@ TEST(MockCamera, SerialConnectionToCameraReturnsZeroOnSuccess)
             .WillOnce(Return(0));
     ASSERT_EQ(0,camera.connectCamera());
 }
-
+TEST(MockCamera, SerialConnectionToCameraReturnsNegOneOnFailure)
+{
+    MockCamera camera;
+    EXPECT_CALL(camera, connectCamera())
+            .Times(1)
+            .WillOnce(Return(-1));
+    ASSERT_EQ(-1,camera.connectCamera());
+}
 
 #endif // TST_CAMERA_H

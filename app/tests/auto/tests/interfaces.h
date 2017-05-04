@@ -27,6 +27,7 @@ public slots:
     virtual int connectPower()=0;
     virtual int writeVoltage(double voltage)=0;
     virtual int readVoltage()=0;
+    virtual int getDeviceId()=0;
 };
 
 class iCamera : public QObject
@@ -38,5 +39,13 @@ public slots:
     virtual int connectCamera()=0;
 };
 
+class LabJack : public QObject
+{
+public:
+    virtual ~LabJack() {}
+public slots:
+
+
+};
 
 #endif // INTERFACES_H
